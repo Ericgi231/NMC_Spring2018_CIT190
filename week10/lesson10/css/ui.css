@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(58, 58, 58);
+}
+
+h1{
+    color: #efec9f;
+    text-align: center;
+}
+
+#accordion-menu{
+    width: 50%;
+    margin: auto;
+}
+
+h3:focus{
+    outline: 0;
+}

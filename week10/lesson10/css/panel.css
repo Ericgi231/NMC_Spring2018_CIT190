@@ -1,0 +1,59 @@
+/*main*/
+body{
+    background-color: rgb(204, 247, 255);
+}
+
+h1{
+    text-align: center;
+    color: #ffacd9;
+}
+
+/*tab panel box*/
+.tabPanelBox{
+    width: 80%;
+    margin: auto;
+}
+
+/*tabs*/
+.tabs {
+    margin: 0;
+    padding: 0;
+}
+
+.tabs li {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #999999;
+}
+
+.tabs li a {
+    color: #ffacd9;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    line-height: 0.1em;
+    padding: 1px 10px 1px 10px;
+}
+
+.tabs li.active{
+    background-color: #7c7c7c;
+}
+
+.tabs a:hover{
+    color: white;
+}
+
+/*tab panels*/
+.panel {
+    display: none;
+    background-color: #7c7c7c;
+    color: white;
+    min-height: 150px;
+    overflow: auto;
+    padding: 20px;
+}
+
+.panel.active {
+    display: block;
+}

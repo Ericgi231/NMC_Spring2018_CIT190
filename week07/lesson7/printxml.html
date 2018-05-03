@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XML AJAX Example</title>
+<style>
+body{
+	background-image:url('media/bg.jpg');
+	background-size:cover;	
+    text-align: center;
+}
+div{
+    display: inline-block;
+	background-color:white;
+	padding:20px;
+	text-indent:20px;
+	width:auto;
+}
+</style>
+</head>
+<body>
+<h2>Video Game Collection:</h2>
+<button id="load">Get my game collection</button><br>
+<div id="gameInfo"></div>
+<script>
+var myCollection = document.getElementById("load");
+myCollection.addEventListener("click", function() {
+    var xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange=function() {
+        if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                xmlDoc=xhttp.responseXML;
+                var txt="<table style='border:0'><tr><th>Dev</th><th>Title</th><th>Rating</th><th>Score</th><th>Year</th><th>Price</th>";
+                var d=xmlDoc.getElementsByTagName("dev");
+                var t=xmlDoc.getElementsByTagName("title");
+                var p=xmlDoc.getElementsByTagName("price");
+                var y=xmlDoc.getElementsByTagName("year");
+                var r=xmlDoc.getElementsByTagName("rating");
+                var s=xmlDoc.getElementsByTagName("score");
+                for (var i=0;i<d.length;i++)
+                    {
+                        txt=txt + "<tr><td>";
+                        txt=txt + d[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + t[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + r[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + s[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + y[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + "$" + p[i].childNodes[0].nodeValue + "</td></td>";
+                    }
+                txt = txt + "</table>";    
+                document.getElementById("gameInfo").innerHTML=txt;
+                document.getElementById("load").style.visibility='hidden';
+            }
+    }
+    xhttp.open("GET","videogames.xml",true);
+    xhttp.send();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XML AJAX Example</title>
+<style>
+body{
+	background-image:url('media/bg.jpg');
+	background-size:cover;	
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<h2>Music:</h2>
+<p id="music"></div>
+<script>
+var xhr = new XMLHttpRequest(); 
+    xhr.onload = function() { 
+        if(xhr.status === 200) { 
+            responseObject = JSON.parse(xhr.responseText);
+            var newContent = '';
+            for (var i = 0; i < responseObject.song.length; i++) { 
+                newContent += '<p>Title: ' + responseObject.song[i].Title + '<br>';
+                newContent += 'Album: ' + responseObject.song[i].Album + '<br>';
+                newContent += 'Artist: ' + responseObject.song[i].Artist + '<br>';
+                newContent += 'Year: ' + responseObject.song[i].Year + '</p>';
+                newContent += '<hr>';
+            }
+            document.getElementById('music').innerHTML = newContent;
+        }
+    };
+    xhr.open('GET', 'music.json', true); 
+    xhr.send(null); 
+</script>
+</body>
+</html>

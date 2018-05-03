@@ -1,0 +1,38 @@
+body{
+    background-color: #222;
+    color: aliceblue;
+    text-align: center;
+}
+
+main{
+    display: inline-block;
+    background-color: #444;
+    border: 8px double orange;
+    padding: 20px;
+}
+
+input{
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    background-color: aliceblue;
+    border: 2px solid #222;
+}
+
+p{
+    font-size: 1.5em;
+    margin: 0;
+    margin-top: 10px; 
+}
+
+#butts{
+    display: flex;
+}
+
+button{
+    flex-grow: 1;
+    font-size: 1.5em;
+    background-color: aliceblue;
+    border: 2px solid orange;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Storage Form</title>
+</head>
+<body style="text-align:center;background-image:url(media/clouds.jpg);">
+    <form novalidate style="display:inline-block;width:auto;color:red;padding-top:5%;">
+        <fieldset style="border:2px dashed black;text-align:left;">
+            <legend>Get Alive</legend>
+
+            <label for="name">Human Alias:</label><br>
+            <input type="text" name="name" id="nameID"><br>
+            <span id="nameErr"></span><br><br>
+
+            <label for="email">Internet Inbox:</label><br>
+            <input type="email" name="email" id="emailID"><br>
+            <span id="emailErr"></span><br><br>
+            
+            <label for="humanity">Level of Humanity:</label><br>
+            <input type="number" name="humanity" id="humanityID"><br>
+            <span id="humanityErr"></span><br><br>
+            
+            <label for="birth">Date of Creation:</label><br>
+            <input type="date" name="birth" id="birthID"><br>
+            <span id="birthErr"></span><br><br>
+            
+            <input type="button" id="subButt" value="Submit">
+            <input type="reset" value="Reset">
+        </fieldset>
+    </form>
+    <script src="js/localform.js"></script>
+</body>
+</html>

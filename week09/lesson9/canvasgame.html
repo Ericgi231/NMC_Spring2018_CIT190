@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Game</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #222;
+            color: #fff;
+        }
+        canvas {
+            background-color: #fefefe;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body onload="startGame()">
+    <p>Move with arrrow keys</p>
+    <p>Restart with space</p>
+    <p>High Score: <span id="highScore"></span></p>
+    <script>
+        var player;
+        var enemies = [];
+        var lines = [];
+        var score = 0;
+        var highScore = localStorage.getItem("highScore");
+        document.getElementById("highScore").innerHTML = highScore;
+        var scoreGoals = 15;
+        var enemySpeed = 10;
+        var enemySpawn = 20;
+
+        function startGame() {
+            player = new component(50,50,"black",100,400,20);
+            scoreCounter = new component("25px", "consolas", "black", 10, 480, "text");
+            lines.push(new component(250,2,"black",0,424,1));
+            lines.push(new component(2,425,"black",64,0,1));
+            lines.push(new component(2,425,"black",124,0,1));
+            lines.push(new component(2,425,"black",184,0,1));
+            gameArea.build();
+        }
+
+        var gameArea = {
+            canvas : document.createElement("canvas"),
+            build : function() {
+                this.canvas.width = 250;
+                this.canvas.height = 500;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.frameNo = 0; 
+                this.interval = setInterval(updateGameArea, 20);
+            },
+
+            clear : function() {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+
+            stop : function() {
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem("highScore", score);
+                    document.getElementById("highScore").innerHTML = highScore;
+                }
+                clearInterval(this.interval);
+            }
+        }
+
+        function component(width, height, color, x, y, speed, type) {
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speed = speed;
+            this.target = x;
+            this.color = color;
+            this.update = function(){
+                ctx = gameArea.context;
+                if (this.speed == "text") {
+                    ctx.font = this.width + " " + this.height;
+                    ctx.fillStyle = this.color;
+                    ctx.fillText(this.text, this.x, this.y);
+                } else {
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+            }
+
+            this.move = function(){
+                if (this.x < this.target) {
+                    this.x += this.speed;
+                } else if (this.x > this.target) {
+                    this.x -= this.speed;
+                }
+            }
+
+            this.fall = function(){
+                this.y += this.speed;
+            }
+
+            this.crashWith = function(otherobj) {
+            var myleft = this.x;
+            var myright = this.x + (this.width);
+            var mytop = this.y;
+            var mybottom = this.y + (this.height);
+            var otherleft = otherobj.x;
+            var otherright = otherobj.x + (otherobj.width);
+            var othertop = otherobj.y;
+            var otherbottom = otherobj.y + (otherobj.height);
+            var crash = true;
+            if ((mybottom < othertop) ||
+                (mytop > otherbottom) ||
+                (myright < otherleft) ||
+                (myleft > otherright)) {
+            crash = false;
+            }
+                return crash;
+            }
+        }
+
+        document.onkeydown = function(event) {
+            if(event.keyCode == 37 || event.keyCode == 65) {
+                player.target = 40;
+            }
+            else if(event.keyCode == 39 || event.keyCode == 68) 
+            {
+                player.target = 160;
+            } 
+            else if (event.keyCode == 32)
+            {
+                gameArea.stop();
+                gameArea.clear();
+                score = 0;
+                enemies = [];
+                startGame();
+            }
+        }
+
+        document.onkeyup = function(event) {
+            player.target = 100;
+        }
+
+        function everyinterval(n) {
+            if ((gameArea.frameNo / n) % 1 == 0) 
+            {
+                return true;
+            } 
+            else 
+            {
+                return false;                
+            }
+        }
+
+        function updateGameArea(e){
+            var x1, x2, num, color, dob;
+
+            for (n = 0; n < enemies.length; n++) {
+                if (player.crashWith(enemies[n])) {
+                    gameArea.stop();
+                }
+            }
+
+            gameArea.clear();
+            gameArea.frameNo++;
+
+            for (n = 0; n < lines.length; n++) {
+                lines[n].update();
+            }
+
+            if (gameArea.frameNo == 1 || everyinterval(enemySpawn)) {
+                score++;
+                console.log("Points: " + score);
+                num = Math.floor(Math.random() * 6)
+                switch (num) {
+                    case 0:
+                        dob = false;
+                        x1 = 40;
+                        color = "red";
+                        break;
+                    case 1:
+                        dob = false;
+                        x1 = 100;
+                        color = "yellow";
+                        break;
+                    case 2:
+                        dob = false;
+                        x1 = 160;
+                        color = "blue";
+                        break;
+                    case 3:
+                        dob = true;
+                        x1 = 40;
+                        x2 = 100;
+                        color = "orange";
+                        break;
+                    case 4:
+                        dob = true;
+                        x1 = 40;
+                        x2 = 160;
+                        color = "purple";
+                        break;
+                    case 5:
+                        dob = true;
+                        x1 = 100;
+                        x2 = 160;
+                        color = "green";
+                        break;
+                }
+                
+                if (score > scoreGoals * 7) {
+                    color = "black";                    
+                    player.color = "white";
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = "white";
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                } else if (score > scoreGoals * 6) {
+                    color = "black";                    
+                    player.color = "white";
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = color;
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                } else if (score > scoreGoals * 5) {
+                    color = "black";                    
+                    player.color = color;
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = color;
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                } else if (score > scoreGoals * 4) {
+                    player.color = color;
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = color;
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                    color = "black";
+                } else if (score > scoreGoals * 3) {
+                    player.color = color;
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = color;
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                } else if (score > scoreGoals * 2) {
+                    for (n = 0; n < lines.length; n++) {
+                        lines[n].color = color;
+                    }
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                } else if (score > scoreGoals * 1) {
+                    document.getElementsByTagName("CANVAS")[0].style.borderColor = color;
+                }
+
+                if (dob) {
+                    enemies.push(new component(50,20,color,x1,-50, enemySpeed));
+                    enemies.push(new component(50,20,color,x2,-50, enemySpeed));
+                } else {
+                    enemies.push(new component(50,20,color,x1,-50, enemySpeed));
+                }
+            }
+
+            for (n = 0; n < enemies.length; n++) {
+                enemies[n].fall();
+                enemies[n].update();
+            }
+
+            scoreCounter.text= "Points: " + score;
+            scoreCounter.update();
+            player.move();
+            player.update();
+        }
+    </script>
+</body>
+</html>

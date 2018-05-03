@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Target Heart Rate</title>
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<link rel="stylesheet" href="css/targetheartrate.css">
+<script src="js/targetheartrate.js"></script>
+</head>
+<body>
+	<article class="center">
+		<header><h1>Training Heart Rate Calculator</h1></header>
+		<section>
+			<form>
+				<p><label id="label" for="age">Enter Your Age:</label><input class="formEntry" id="age" type="number" width="10" min="15" max="99"></p>
+				<p><label id="label" for="restingHR">Resting Heartrate:</label>
+				<input class="formEntry" id="restingHR" type="number" width="10" title="Take a 15 second count in the morning and multiply by 4" ></p>
+				<div style="text-align:center;">
+					<button class="inputButton" type="button" onclick="calcRate();">Calculate Training Heart Rate</button>
+					<button class="inputButton" type="reset" value="Reset" onclick="clearText()">Clear All</button>
+				</div>
+				<p id="feedback"></p>
+				<p id="thanks"></p>
+			</form>
+		</section>
+	</article>
+	<script>document.getElementById("age").focus();</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zoo City</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+    body{
+        text-align: center;
+        background-image: url("media/xp.png");
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    #MoveMe1, #MoveMe2, #MoveMe3, #MoveMe4, #MoveMe5, #MoveMe6, #MoveMe7{
+        width: 40px;
+        height: 40px;
+    }   
+
+    #MoveMe8{
+        width: 40px;
+        height: 200px;
+        left: 800px;
+    }
+    </style>
+    <script>
+    $(function(){
+        $("#MoveMe1").draggable();
+        $("#MoveMe2").draggable();
+        $("#MoveMe3").draggable();
+        $("#MoveMe4").draggable();
+        $("#MoveMe5").draggable();
+        $("#MoveMe6").draggable();
+        $("#MoveMe7").draggable();
+        $("#MoveMe8").draggable();
+    });
+    </script>
+</head>
+<body>
+    <h1>Big ol' Animal Zoo</h1>
+    <p id="MoveMe1"><img src="media/cat.png" /></p>
+    <p id="MoveMe8"><img src="media/dog.png" /></p>
+    <p id="MoveMe2"><img src="media/snake.png" /></p>
+    <p id="MoveMe3"><img src="media/mouse.png" /></p>
+    <p id="MoveMe4"><img src="media/bird1.png" /></p>
+    <p id="MoveMe5"><img src="media/bird2.png" /></p>
+    <p id="MoveMe6"><img src="media/lion.png" /></p> 
+    <p id="MoveMe7"><img src="media/bear.png" /></p> 
+</body>
+</html>

@@ -1,0 +1,4 @@
+Color:
+blue,#00B1D7
+green,#9DC145
+gray,#B2A8B3

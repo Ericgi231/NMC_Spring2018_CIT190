@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/changingcontent.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Change The Box Below</h1>
+    </header>
+    <div id="ControlBar">
+        <div>
+            <label for="fieldTitle">Title</label><br>
+            <input id="fieldTitle" type="text" value="Title" onchange="changeTitle()">
+        </div>
+        <div>
+            <label for="fieldText">Text</label><br>
+            <input id="fieldText" type="text" value="This is some temp text." onchange="changeText()">
+        </div>
+        <div>
+            <label for="fieldBg">Bg</label><br>
+            <input id="fieldBg" type="color" onchange="changeBg()">
+        </div>
+        <div>
+            <label for="fieldFg">Fg</label><br>
+            <input id="fieldFg" type="color" onchange="changeFg()">
+        </div>
+        <div>
+            <label for="fieldWidth">Width</label><br>
+            <input id="fieldWidth" type="number" min="300" max="800" value="500" onchange="changeWidth()">
+        </div>
+        <div>
+            <label for="fieldHeight">Height</label><br>            
+            <input id="fieldHeight" type="number" min="200" max="600" value="300" onchange="changeHeight()">
+        </div>
+    </div>
+    <section id="box">
+        <h1 id="boxTitle">Title</h1>
+        <p id="boxText">This is some temp text.</p>
+    </section>
+    <script src="js/changingcontent.js"></script>
+</body>
+</html>

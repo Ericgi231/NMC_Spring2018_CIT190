@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logo</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="240" height="280">Your browser does not support the HTML5 canvas tag.</canvas>
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx= c.getContext("2d");
+
+    //background
+    //
+    ctx.fillStyle="lightskyblue";
+    ctx.fillRect(0,0,240,280);
+    ctx.fill();
+
+    //circle
+    //
+    ctx.fillStyle="lightcoral";
+    ctx.strokeStyle="black";
+    ctx.lineWidth="6";
+    ctx.arc(120,120,100,0,Math.PI*2,true);
+    ctx.stroke();
+    ctx.fill();    
+
+    //star
+    //
+    ctx.beginPath();
+    ctx.fillStyle="yellow";    
+    ctx.moveTo(120,20);
+    ctx.lineTo(190,190);
+    ctx.lineTo(120,160);
+    ctx.lineTo(50,190);
+    ctx.fill();
+
+    ctx.moveTo(30,75);
+    ctx.lineTo(210,75);
+    ctx.lineTo(120,160);
+    ctx.fill();
+
+    //text
+    //
+    ctx.font ="50px 'comic sans ms'";
+    ctx.strokeStyle="black";
+    ctx.lineWidth="2";    
+    ctx.fillStyle="yellow";
+    ctx.fillText("Nice Boy",20,265);
+    ctx.strokeText("Nice Boy",20,265);
+
+</script>
+</body>
+</html>

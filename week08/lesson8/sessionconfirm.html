@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Storage Confirm</title>
+</head>
+<body style="background-image:url(media/clouds.jpg);text-align:center;">
+    <h1 style="color:red;">We welcome you...</h1>
+    <p id="txt" style="color:red;"></p>
+    <script>
+        var name=email=humanity=birth="";
+        name = sessionStorage.name;
+        email = sessionStorage.email;
+        humanity = sessionStorage.humanity;
+        birth = sessionStorage.birth;
+
+        if (name==""&&email==""&&humanity==""&&birth=="") {
+            alert("You have not made an offering, return to your form.");
+            window.location.assign("localForm.html");
+        }
+    
+        document.getElementById("txt").innerHTML = "Thanks " + name + ".<br> We appreciate your offering of " + humanity + " humanity.<br> On " + birth + " we will send the gift to " + email + ".";
+    </script>
+</body>
+</html>

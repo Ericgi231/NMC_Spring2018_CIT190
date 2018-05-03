@@ -1,0 +1,40 @@
+
+body{
+    background-image: url("../media/space.jpg");
+    height: 100%; 
+    overflow: hidden;
+}
+
+#remote{
+    position: absolute;
+}
+
+#remote input{
+    display: inline-block;
+    color: #DFFFFF;
+    background-color: #0581BC;
+    border: 2px solid #040509;
+    width: 56px;
+    height: 56px;
+    margin: 2px;
+}
+
+#dog{
+    position: absolute;
+    z-index: -1;
+    top: 500px;
+    left: 0px;
+}
+
+#stats{
+    position: absolute;
+    right: 0;
+    color: #DFFFFF;
+}
+
+#stats input{
+    background-color: #0581BC;
+    border: 2px solid #040509;
+    width: 7em;
+    margin: 2px;
+}

@@ -1,0 +1,38 @@
+body{
+    background-color: aliceblue;
+}
+
+header{
+    text-align: center;
+    border: 6px double black;
+    background-color: whitesmoke;    
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90vw;
+    margin: auto;
+}
+
+section{
+    margin: 12px;
+    padding: 6px;
+    text-align: center;
+    border: 6px double black;
+    background-color: whitesmoke;
+}
+
+section img{
+    width: 405px;
+    height: 260px;
+}
+
+footer{
+    padding: 6px;
+    text-align: center;
+    margin: auto;
+    border: 6px double black;
+    background-color: whitesmoke;    
+}

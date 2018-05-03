@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <game>
+        <title>Michigan: Report from Hell</title>
+        <dev>Suda51</dev>
+        <rating>18+</rating>
+        <score>53/100</score>
+        <price>66.30</price>
+        <year>2004</year>
+    </game>
+    <game>
+        <title>Ride To Hell Retribution</title>
+        <dev>Eutechnyx</dev>
+        <rating>16+</rating>
+        <score>16/100</score>
+        <price>N/A</price>
+        <year>2013</year>
+    </game>
+    <game>
+        <title>Afro Samurai 2</title>
+        <dev>Redacted Studios</dev>
+        <rating>M</rating>
+        <score>21/100</score>
+        <price>N/A</price>
+        <year>2015</year>
+    </game>
+    <game>
+        <title>Petz</title>
+        <dev>Ubisoft</dev>
+        <rating>E</rating>
+        <score>60/100</score>
+        <price>6.30</price>
+        <year>1995</year>
+    </game>
+</catalog>

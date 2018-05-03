@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Learning About Data Types</title>
+<link rel="stylesheet" href="css/datatypes.css">
+<script src="js/datatypes.js"></script>
+</head>
+<body>
+	<article>
+		<header><h2>Learning about Data Types</h2></header>
+		<section>
+			<form>
+				<fieldset style="border:5px darkblue groove;width:50%;">
+				<h3>Working with Numbers</h3>
+				<h4>Enter a number next to Number 1 and Number 2, then click the operator to see the result</h4>
+					<div style="display:inline-flex; background-color:lightblue;margin-right:20px; width:100%">
+						<p>Number 1:<input type="text" id="Value1" value=" "></p>
+						<p>Number 2:<input type="text" id="Value2" value=" "></p>
+						<p>Result:<input type="text" id="Result" value=""readonly="true"> </p>
+					</div>
+					<div style="text-align:center;">
+						<input type="button"  value="+"  onclick="DoAdd()" />
+						<input type="button"   value="-" onclick="DoSub()" />
+						<input type="button"  value="*"  onclick="DoMult()" />
+						<input type="button"  value="/"  onclick="DoDiv()" />
+						<button type="reset" value="Reset" onclick="removeResult()">Clear All</button>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+		<section>
+			<h3>Working with Arrays filled with color</h3>
+			<p>Enter a number between 0 and 8 and I will show you the color of the day AND change the background color of the page:</p>
+			<input id="choice" type="number" max="8" min="0" onchange="getColor()">
+			<p id="color"></p>
+			<p>Select a color for your text and watch it change: <input type="color" id="txtColor" onchange="changeText()"></p>
+		</section>
+	</article>
+</body>
+</html>

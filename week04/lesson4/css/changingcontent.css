@@ -1,0 +1,28 @@
+body{
+    background-color: aliceblue;
+}
+
+header{
+    text-align: center;
+}
+
+#ControlBar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+#ControlBar div{
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+section{
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    background-color: white;
+    border: 8px solid black;
+    margin: auto;
+}

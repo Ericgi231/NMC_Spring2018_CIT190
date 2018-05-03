@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Calculator</title>
+<link rel="stylesheet" href="css/bmi.css">
+<script src="js/bmi.js"></script>
+</head>
+<body  onload="getFocus();">
+<section>
+	<h1>Body Mass Index</h1>
+	<form action="" id="bmiForm">
+		<p style="text-align:left;">
+			<label class="labelDisplay" for="weight">Weight (pounds) &nbsp;</label>
+			<input class="formEntry" type="text" id="weight" value="" size="10" style="text-align:center;"/><br />
+			<label class="labelDisplay" for="height">Height (inches) &nbsp;</label>
+			<input class="formEntry" type="text" id="height" value=""  size="10" style="text-align:center;"/>
+		<p>
+		<input class="inputButton" type="button" value="Calculate" onclick="calcBmi()"/>
+		<input class="inputButton" type="reset" value="Reset" onclick="getFocus()" />
+		<hr>
+		</p>
+		<p id="msg" style="font-size:20pt;font-weight:900;text-align:center;"></p>
+		<p>(Normal: 18.5 to 25)</p>
+	</form>
+</section>
+</body>
+</html>
